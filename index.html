@@ -1,0 +1,612 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shaik Nawaz Ahmed | Offensive Security Portfolio</title>
+  <meta name="description" content="Portfolio of Shaik Nawaz Ahmed, Offensive Security and VAPT Specialist focused on enterprise penetration testing and risk reduction." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWix+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkR4j8z+7A6GJv6QxB6A5R5n7h8R+eX0iQdA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root {
+      --bg: #070b12;
+      --bg-elev: #0d1420;
+      --bg-card: #111b2a;
+      --text: #d9e3f0;
+      --muted: #96a3b5;
+      --line: #1b2a3f;
+      --accent: #15d1c2;
+      --accent-soft: rgba(21, 209, 194, 0.2);
+      --max: 1140px;
+      --radius: 14px;
+      --shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Inter", "Roboto", "Poppins", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 12% 0%, rgba(21, 209, 194, 0.1), transparent 28%),
+        radial-gradient(circle at 80% 10%, rgba(61, 124, 255, 0.08), transparent 32%),
+        var(--bg);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(100% - 2rem, var(--max));
+      margin-inline: auto;
+    }
+
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(27, 42, 63, 0.7);
+      background: rgba(7, 11, 18, 0.75);
+    }
+
+    nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      color: #f1f5fa;
+    }
+
+    .brand span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.92rem;
+      transition: color 0.22s ease;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    section { padding: 78px 0; }
+
+    .hero {
+      padding-top: 92px;
+      padding-bottom: 70px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.85rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.95rem, 4vw, 3.2rem);
+      line-height: 1.2;
+      color: #f6f8fb;
+      max-width: 760px;
+    }
+
+    .subtitle {
+      margin-top: 14px;
+      font-size: clamp(1rem, 2.2vw, 1.2rem);
+      color: #bac6d6;
+      max-width: 760px;
+    }
+
+    .hero-actions {
+      margin-top: 30px;
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 11px 16px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 1px solid var(--line);
+      transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .btn.primary {
+      background: linear-gradient(120deg, #13cbbd, #0da7c2);
+      color: #041015;
+      border: none;
+      box-shadow: 0 0 0 1px rgba(8, 157, 170, 0.25), 0 10px 24px rgba(10, 160, 176, 0.28);
+    }
+
+    .btn.secondary {
+      background: rgba(13, 20, 32, 0.8);
+      color: #d8e2ef;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      border-color: #2c3d55;
+    }
+
+    .stats {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.85rem;
+      max-width: 760px;
+    }
+
+    .stat {
+      background: linear-gradient(180deg, rgba(17, 27, 42, 0.9), rgba(13, 20, 32, 0.9));
+      border: 1px solid var(--line);
+      padding: 14px;
+      border-radius: 12px;
+    }
+
+    .stat h3 {
+      margin: 0;
+      font-size: 1.35rem;
+      color: #f0f5fb;
+    }
+
+    .stat p {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .section-head {
+      margin-bottom: 20px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(1.35rem, 2.4vw, 2rem);
+      color: #f4f7fc;
+    }
+
+    .section-head p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      max-width: 760px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(17, 27, 42, 0.95), rgba(12, 19, 30, 0.96));
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .span-6 { grid-column: span 6; }
+    .span-4 { grid-column: span 4; }
+    .span-8 { grid-column: span 8; }
+    .span-12 { grid-column: span 12; }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.6rem;
+    }
+
+    .chip {
+      border: 1px solid #2a3b54;
+      background: rgba(13, 20, 32, 0.75);
+      color: #c5d2e2;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+    }
+
+    .list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .list li {
+      margin-bottom: 10px;
+      color: #cfd9e7;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.55rem;
+    }
+
+    .list i {
+      color: var(--accent);
+      margin-top: 4px;
+      width: 14px;
+    }
+
+    .timeline-item { margin-bottom: 18px; }
+
+    .timeline-item h3 {
+      margin: 0;
+      font-size: 1rem;
+      color: #eef3fa;
+    }
+
+    .timeline-meta {
+      margin: 2px 0 8px;
+      color: #8ea0b5;
+      font-size: 0.86rem;
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.65rem;
+    }
+
+    .tool {
+      background: rgba(12, 19, 30, 0.85);
+      border: 1px solid #253650;
+      border-radius: 10px;
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: #d6e0ed;
+      font-size: 0.88rem;
+    }
+
+    .tool i { color: var(--accent); }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 22px 0 28px;
+      color: #8797ab;
+      font-size: 0.85rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .span-8, .span-6, .span-4 { grid-column: span 12; }
+      .stats { grid-template-columns: 1fr; }
+      nav { padding: 10px 0; align-items: flex-start; }
+      .nav-links { gap: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="nav-wrap">
+    <div class="container">
+      <nav>
+        <a class="brand" href="#home">Nawaz<span>.Security</span></a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <header id="home" class="hero">
+    <div class="container reveal">
+      <div class="eyebrow"><i class="fa-solid fa-shield-halved"></i> Offensive Security Portfolio</div>
+      <h1>Shaik Nawaz Ahmed</h1>
+      <p class="subtitle"><strong>Offensive Security &amp; VAPT Specialist</strong><br />Cybersecurity professional focused on enterprise penetration testing, Active Directory attack simulation, and compliance-aligned risk reduction across web, network, and internal infrastructures.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="mailto:shaiknawaz3108@gmail.com"><i class="fa-solid fa-envelope"></i> Email Me</a>
+        <a class="btn secondary" href="#contact"><i class="fa-solid fa-address-card"></i> Contact Details</a>
+        <a class="btn secondary" href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <h3>20+</h3>
+          <p>Enterprise systems with critical-risk exposure reduced</p>
+        </div>
+        <div class="stat">
+          <h3>50+</h3>
+          <p>Enterprise-style attack simulation labs completed</p>
+        </div>
+        <div class="stat">
+          <h3>Top 10%</h3>
+          <p>Global TryHackMe ranking through consistent performance</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>About Me</h2>
+        <p>I perform offensive security assessments that mirror real-world adversary behavior and convert technical findings into business-prioritized remediation plans for enterprise teams.</p>
+      </div>
+      <div class="card-grid reveal">
+        <article class="card span-8">
+          <p>Cybersecurity professional with hands-on experience in network, web, and Active Directory penetration testing. I execute end-to-end attack simulations, identify high-impact vulnerabilities, and deliver clear remediation guidance to strengthen security posture in enterprise and financial environments.</p>
+          <p>My objective is to contribute to offensive security engagements by exposing realistic breach paths, improving detection and hardening controls, and supporting measurable risk reduction aligned to organizational priorities.</p>
+        </article>
+        <article class="card span-4">
+          <h3>Regulatory Alignment</h3>
+          <div class="chips">
+            <span class="chip">ISO 27001 Annex A</span>
+            <span class="chip">NIST</span>
+            <span class="chip">OWASP</span>
+            <span class="chip">SAMA</span>
+            <span class="chip">NCA ECC</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Core Skills</h2>
+      </div>
+      <div class="card-grid reveal">
+        <article class="card span-6">
+          <h3>Offensive Security &amp; VAPT</h3>
+          <ul class="list">
+            <li><i class="fa-solid fa-check"></i>Web, network, and Active Directory penetration testing</li>
+            <li><i class="fa-solid fa-check"></i>End-to-end attack lifecycle simulation</li>
+          </ul>
+        </article>
+        <article class="card span-6">
+          <h3>Active Directory Attacks</h3>
+          <ul class="list">
+            <li><i class="fa-solid fa-check"></i>Kerberoasting, AS-REP roasting, delegation abuse</li>
+            <li><i class="fa-solid fa-check"></i>Credential dumping, lateral movement, domain compromise paths</li>
+          </ul>
+        </article>
+        <article class="card span-6">
+          <h3>Web &amp; Network Testing</h3>
+          <ul class="list">
+            <li><i class="fa-solid fa-check"></i>Auth/AuthZ flaws, injection issues, misconfigurations</li>
+            <li><i class="fa-solid fa-check"></i>Privilege escalation and exposure validation</li>
+          </ul>
+        </article>
+        <article class="card span-6">
+          <h3>Reporting &amp; Risk Analysis</h3>
+          <ul class="list">
+            <li><i class="fa-solid fa-check"></i>Executive and technical reporting with impact context</li>
+            <li><i class="fa-solid fa-check"></i>Prioritized remediation guidance for business stakeholders</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <div class="container">
+      <div class="section-head reveal"><h2>Certifications</h2></div>
+      <div class="card-grid reveal">
+        <article class="card span-6">
+          <h3>OSCP</h3>
+          <p>Offensive Security Certified Professional - completed Dec 2025.</p>
+        </article>
+        <article class="card span-6">
+          <h3>OSEP (In Progress)</h3>
+          <p>Advanced red-team training in stealth intrusion, AV/EDR evasion, and advanced AD attacks.</p>
+        </article>
+        <article class="card span-6">
+          <h3>CEH Practical</h3>
+          <p>EC-Council - certified July 2025 with hands-on penetration testing focus.</p>
+        </article>
+        <article class="card span-6">
+          <h3>Google Cybersecurity Certificate</h3>
+          <p>Completed Oct 2024; covered security operations, SIEM, and incident response.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="container">
+      <div class="section-head reveal"><h2>Work Experience</h2></div>
+      <div class="card-grid reveal">
+        <article class="card span-8">
+          <div class="timeline-item">
+            <h3>Security Analyst - Offensive Security / VAPT, Cyber Defentech</h3>
+            <div class="timeline-meta">Jan 2025 - Jan 2026</div>
+            <ul class="list">
+              <li><i class="fa-solid fa-chevron-right"></i>Executed web, internal network, and Active Directory pentests under strict NDA.</li>
+              <li><i class="fa-solid fa-chevron-right"></i>Validated a critical AD misconfiguration that could enable full domain compromise impacting 300+ employees.</li>
+              <li><i class="fa-solid fa-chevron-right"></i>Reduced critical-risk exposure across 20+ enterprise systems and Tier-1 AD services.</li>
+              <li><i class="fa-solid fa-chevron-right"></i>Delivered executive and technical reports recognized by leadership for high-impact clarity.</li>
+            </ul>
+          </div>
+          <div class="timeline-item">
+            <h3>Security Analyst Intern - VAPT, Huntmetrics Pvt. Ltd.</h3>
+            <div class="timeline-meta">Aug 2024 - Sept 2024</div>
+            <ul class="list">
+              <li><i class="fa-solid fa-chevron-right"></i>Performed reconnaissance and vulnerability assessments across application environments.</li>
+              <li><i class="fa-solid fa-chevron-right"></i>Used Nmap, Nessus, and Metasploit to identify and document exploitable weaknesses.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="card span-4">
+          <h3>Engagement Impact</h3>
+          <ul class="list">
+            <li><i class="fa-solid fa-chart-line"></i>High and critical-risk findings validated end-to-end</li>
+            <li><i class="fa-solid fa-sitemap"></i>Attack chains demonstrated from initial access to domain-level impact</li>
+            <li><i class="fa-solid fa-handshake"></i>Clear communication to technical and non-technical stakeholders</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <div class="section-head reveal"><h2>Projects & Research Labs</h2></div>
+      <div class="card-grid reveal">
+        <article class="card span-6">
+          <h3>Active Directory Attack Simulation</h3>
+          <ul class="list">
+            <li><i class="fa-solid fa-terminal"></i>Designed controlled AD lab mirroring corporate architecture.</li>
+            <li><i class="fa-solid fa-terminal"></i>Executed low-privilege to domain-compromise attack paths.</li>
+            <li><i class="fa-solid fa-terminal"></i>Mapped detection gaps with defensive recommendations.</li>
+          </ul>
+        </article>
+        <article class="card span-6">
+          <h3>Hands-on Security Research & Simulations</h3>
+          <ul class="list">
+            <li><i class="fa-solid fa-flask"></i>Completed 50+ enterprise-style labs across web, Linux, Windows, and AD.</li>
+            <li><i class="fa-solid fa-flask"></i>Practiced recon -> initial access -> escalation -> lateral movement -> domain compromise.</li>
+            <li><i class="fa-solid fa-flask"></i>Documented control mapping aligned with ISO 27001, SAMA, and NCA ECC.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="achievements">
+    <div class="container">
+      <div class="section-head reveal"><h2>Achievements</h2></div>
+      <div class="card-grid reveal">
+        <article class="card span-4">
+          <h3>TryHackMe</h3>
+          <p>Ranked in the top 10% globally through consistent enterprise-style lab performance.</p>
+        </article>
+        <article class="card span-4">
+          <h3>CTF Ranking</h3>
+          <p>Achieved 114th position out of 500 teams in a national-level CTF by the Computer Society of India.</p>
+        </article>
+        <article class="card span-4">
+          <h3>Workshops</h3>
+          <p>Delivered a 3-day hands-on cybersecurity workshop focused on ethical hacking, recon, and vulnerability assessment.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="tools">
+    <div class="container">
+      <div class="section-head reveal"><h2>Tools & Technologies</h2></div>
+      <div class="card reveal">
+        <div class="tool-grid">
+          <div class="tool"><i class="fa-solid fa-network-wired"></i>Nmap</div>
+          <div class="tool"><i class="fa-solid fa-spider"></i>Burp Suite</div>
+          <div class="tool"><i class="fa-solid fa-bolt"></i>Metasploit</div>
+          <div class="tool"><i class="fa-solid fa-project-diagram"></i>BloodHound</div>
+          <div class="tool"><i class="fa-solid fa-key"></i>Mimikatz</div>
+          <div class="tool"><i class="fa-solid fa-hashtag"></i>Hashcat</div>
+          <div class="tool"><i class="fa-solid fa-database"></i>SQLmap</div>
+          <div class="tool"><i class="fa-solid fa-search"></i>ffuf</div>
+          <div class="tool"><i class="fa-solid fa-user-secret"></i>winPEAS</div>
+          <div class="tool"><i class="fa-solid fa-terminal"></i>PowerSploit</div>
+          <div class="tool"><i class="fa-solid fa-wave-square"></i>Wireshark</div>
+          <div class="tool"><i class="fa-brands fa-linux"></i>Kali Linux</div>
+          <div class="tool"><i class="fa-solid fa-cubes"></i>VMware</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="frameworks">
+    <div class="container">
+      <div class="section-head reveal"><h2>Compliance & Frameworks</h2></div>
+      <div class="card reveal">
+        <div class="chips">
+          <span class="chip">ISO 27001 Annex A</span>
+          <span class="chip">NIST</span>
+          <span class="chip">OWASP</span>
+          <span class="chip">SAMA Cybersecurity Framework</span>
+          <span class="chip">NCA Essential Cybersecurity Controls (ECC)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="container">
+      <div class="section-head reveal"><h2>Education</h2></div>
+      <div class="card reveal">
+        <h3>Bachelor of Engineering in Information Technology</h3>
+        <p>Osmania University, Hyderabad (Lords Institute of Engineering and Technology) | Nov 2021 - Jun 2025 | CGPA: 8.05</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="section-head reveal"><h2>Contact</h2><p>Available for cybersecurity consulting, VAPT engagements, and full-time offensive security roles.</p></div>
+      <div class="card-grid reveal">
+        <article class="card span-4">
+          <h3>Email</h3>
+          <p><a href="mailto:shaiknawaz3108@gmail.com">shaiknawaz3108@gmail.com</a></p>
+        </article>
+        <article class="card span-4">
+          <h3>Phone</h3>
+          <p><a href="tel:+918125623108">+91 81256 23108</a></p>
+        </article>
+        <article class="card span-4">
+          <h3>LinkedIn</h3>
+          <p><a href="#">Add LinkedIn profile URL</a></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">© 2026 Shaik Nawaz Ahmed | Offensive Security &amp; VAPT Specialist</div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14 });
+
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
